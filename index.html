@@ -11,12 +11,23 @@
 
 <body>
   <canvas id="canvas"></canvas>
-  <button id="_black">黑色</button>
-  <button id="_red">红色</button>
+  <button id="_black" style="width: 50px; height: 50px;">黑色</button>
+  <button id="_red" style="width: 50px; height: 50px;">红色</button>
+  <input type="color" name="" id="color">
+  <button id="sumbit" style="width: 50px; height: 50px;">确认</button>
   <script>
     let canvas = document.getElementById('canvas')
     let blackColor = document.getElementById('_black')
     let redColor = document.getElementById('_red')
+    let penColor = document.getElementById('color')
+    let sumbit = document.getElementById('sumbit')
+
+    sumbit.onclick = (e) => {
+      e.strokeStyle = penColor.value
+      ctx.strokeStyle = e.strokeStyle
+    }
+
+
     canvas.width = document.documentElement.clientWidth
     canvas.height = document.documentElement.clientHeight
     let ctx = canvas.getContext("2d")
