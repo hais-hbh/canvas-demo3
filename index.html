@@ -11,13 +11,26 @@
 
 <body>
   <canvas id="canvas"></canvas>
+  <button id="_black">黑色</button>
+  <button id="_red">红色</button>
   <script>
     let canvas = document.getElementById('canvas')
+    let blackColor = document.getElementById('_black')
+    let redColor = document.getElementById('_red')
     canvas.width = document.documentElement.clientWidth
     canvas.height = document.documentElement.clientHeight
     let ctx = canvas.getContext("2d")
     let painting = false
-    ctx.fillStyle = "blue"
+
+    blackColor.onclick = function (e) {
+      e.strokeStyle = 'black'
+      ctx.strokeStyle = e.strokeStyle
+    }
+    redColor.onclick = function (e) {
+      e.strokeStyle = 'red'
+      ctx.strokeStyle = e.strokeStyle
+    }
+
     var isTouchDevice = 'ontouchstart' in document.documentElement
 
     let last
